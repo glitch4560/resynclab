@@ -1,0 +1,173 @@
+{
+  "theme": {
+    "mode": "dark",
+    "base": "#06090f",
+    "card_surface": "rgba(13, 17, 23, 0.85)",
+    "elevated_surface": "#131923",
+    "border_subtle": "#1b2432",
+    "border_active": "#2b384e",
+    "text_primary": "#f1f5f9",
+    "text_secondary": "#94a3b8",
+    "text_muted": "#64748b",
+    "lane_colors": {
+      "L1": { "name": "No recovery", "color": "#f43f5e", "glow": "rgba(244, 63, 94, 0.35)", "bg": "#4c051933" },
+      "L2": { "name": "Caching past states", "color": "#f59e0b", "glow": "rgba(245, 158, 11, 0.35)", "bg": "#451a0333" },
+      "L3": { "name": "SINGLETON-style skipped keys", "color": "#8b5cf6", "glow": "rgba(139, 92, 246, 0.35)", "bg": "#1e133866" },
+      "L4": { "name": "Proposed: seekable counter lane", "color": "#00f0ff", "glow": "rgba(0, 240, 255, 0.45)", "bg": "#08334466" }
+    },
+    "status_colors": {
+      "delivered": "#10b981",
+      "dropped": "#f43f5e",
+      "decrypted": "#00f0ff",
+      "recovered": "#8b5cf6",
+      "failed": "#e11d48",
+      "seek": "#00f0ff",
+      "held": "#f59e0b",
+      "late": "#f59e0b",
+      "dup": "#38bdf8",
+      "replay": "#fb923c",
+      "rejected": "#64748b",
+      "replayed": "#f97316"
+    }
+  },
+  "typography": {
+    "headline_font": "JetBrains Mono, monospace",
+    "body_font": "IBM Plex Sans, sans-serif",
+    "mono_font": "JetBrains Mono, monospace",
+    "hierarchy": {
+      "h1": "text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight",
+      "h2": "text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-300",
+      "h3": "text-sm sm:text-base font-semibold",
+      "body": "text-sm text-slate-300 leading-relaxed",
+      "micro": "text-[10px] uppercase tracking-[0.14em] font-medium text-slate-400 font-mono"
+    }
+  },
+  "architectural_redesign": {
+    "concept": "Tactical Hardware Command Center / Live Pipeline Accelerator",
+    "vibe": "Elite academic research workbench meets high-velocity telemetry terminal. Rich cyan-and-obsidian glow, tactile micro-toggles, kinetic packet conduit, crystal glass sticky nav, and instant viva demonstration value.",
+    "new_sections": [
+      {
+        "id": "hero-pipeline",
+        "title": "Interactive Beam Pipeline (Hero Visualizer)",
+        "description": "Canvas-driven real-time packet accelerator showing IoT Sensor Node streaming Ascon-AEAD128 frames through a noisy RF channel into all 4 receiver architectures. Dropped packets burn into red EMP rings; L1 freezes; L2 branches into cache buffers; L3 cascades skipped key vaults; L4 sparks the parallel counter-seek lane with zero pipeline pause."
+      },
+      {
+        "id": "sticky-nav",
+        "title": "Sticky HUD Navigation & Live Telemetry Bar",
+        "description": "Floating glassmorphic strip (backdrop-blur-xl bg-[#06090f]/80) anchored at the top with jump links (#pipeline, #controls, #lanes, #inspector, #benchmarks, #hardware, #sweep), running state pulse, quick start/pause trigger, and instant loss/sent badges."
+      },
+      {
+        "id": "quick-viva-presets",
+        "title": "Viva Demo Quick Scenarios",
+        "description": "One-click interactive showcase scenarios for exam defense: 1) Single Drop (Breaks L1 instantly), 2) Burst Loss (Fills L2 cache / stresses L3 memory), 3) Out-of-Order UDP (Shows L3 & L4 reorder handling), 4) Replay Attack (Shows L4 128-bit bitmap rejection), 5) Clean Stream (All in sync baseline)."
+      },
+      {
+        "id": "receiver-lanes-comparison",
+        "title": "Vivid 4-Way Receiver Lanes Matrix",
+        "description": "Redesigned cards with distinct lane LED badges, glowing accent tracing lines, animated status pill indicator, dual timeline tracks with hover magnification, and an interactive 'Why L4 Wins' comparative chip."
+      },
+      {
+        "id": "deep-dive-workspace",
+        "title": "Interactive Inspector & Leak Cryptanalysis Deck",
+        "description": "Tabbed or split terminal card with live hex byte breakdown, AEAD auth tag verification chip, payload ASCII display, and the memory-compromise snapshot visualizer with animated compromise bars."
+      },
+      {
+        "id": "benchmarks-and-sweep",
+        "title": "Telemetry Analytics & Automated Sweep Studio",
+        "description": "High-contrast Recharts live streams with enhanced neon stroke shadows, custom tactical tooltips, and the loss-rate sweep lab with progress telemetry."
+      }
+    ]
+  },
+  "hero_canvas_specification": {
+    "component_name": "HeroPacketFlow",
+    "file_path": "/app/frontend/src/components/resync/HeroPacketFlow.jsx",
+    "rendering_method": "HTML5 Canvas (60 FPS requestAnimationFrame) + SVG node backdrop",
+    "layout": {
+      "nodes": [
+        { "id": "sender", "label": "5G IoT Sensor", "sub": "Ascon-AEAD128 Streamer", "x": 0.08, "y": 0.5 },
+        { "id": "channel", "label": "Lossy Edge Channel", "sub": "UDP / 5G Array", "x": 0.38, "y": 0.5 },
+        { "id": "l1", "label": "L1: No Recovery", "sub": "Continuous Chain", "x": 0.88, "y": 0.16 },
+        { "id": "l2", "label": "L2: Caching", "sub": "W=8 State Window", "x": 0.88, "y": 0.38 },
+        { "id": "l3", "label": "L3: Skipped Keys", "sub": "SINGLETON Memory", "x": 0.88, "y": 0.62 },
+        { "id": "l4", "label": "L4: Seek Lane", "sub": "Parallel O(1) Counter", "x": 0.88, "y": 0.84 }
+      ]
+    },
+    "particle_engine": {
+      "pool_size": 40,
+      "particle_properties": [
+        "id", "pktIndex", "status", "kind", "x", "y", "targetY", "progress (0 to 1)", "speed", "color", "isDropped", "isRecovered", "isSeek"
+      ],
+      "visual_effects": {
+        "flying_packet": "Rounded glowing pill with counter # and cyan/emerald/rose trail",
+        "drop_event": "Explodes at channel into a dispersing shockwave ring (red glow) with 'DROPPED' text particle fading out",
+        "seek_event": "Dual particle split: cyan lightning pulse along secondary seek datapath straight into L4",
+        "recovery_spark": "Violet particle flash when L2/L3 re-aligns"
+      }
+    }
+  },
+  "visual_enhancers": {
+    "glassmorphism": "backdrop-blur-xl bg-[#080d16]/80 border border-slate-800/80 shadow-[0_8px_32px_rgba(0,0,0,0.37)]",
+    "glow_accents": {
+      "l4_highlight": "box-shadow: 0 0 25px -4px rgba(0, 240, 255, 0.25), inset 0 0 16px -2px rgba(0, 240, 255, 0.08)",
+      "live_pulse": "animate-ping opacity-75"
+    },
+    "grid_pattern": "radial-gradient(circle at 1px 1px, rgba(56, 189, 248, 0.07) 1px, transparent 0) 0 0 / 24px 24px, #06090f",
+    "interactive_nodes": "Hovering over timeline nodes zooms to 1.35x scale with box-shadow halo matching the event outcome"
+  },
+  "component_guidance": {
+    "Header.jsx": {
+      "improvements": [
+        "Add Viva / Research project badges ('Ascon NIST SP 800-232', 'Lightweight IoT Cryptography', 'Forward-Secret UDP Stream')",
+        "Include quick scenario preset buttons ('Drop 1 Pkt', 'Burst Burst', 'Out-of-Order', 'Replay Attack') directly triggerable",
+        "Transform metrics into glowing tactical HUD cards with subtle gradient borders and live counter badges",
+        "Preserve existing data-testids: metric-sent, metric-dropped, metric-observed-loss, metric-sender-reuse, sim-running-led"
+      ]
+    },
+    "ControlBar.jsx": {
+      "improvements": [
+        "Group into 3 distinct functional tactical bays: [1. Stream Drive: Play/Step/Reset/Speed], [2. Channel Imperfection: Loss/Burst/Disorder/Arm Attacks], [3. Architecture & Lab Tools: Epoch/Leak/Export/Report]",
+        "Enhance sliders with color-coded track fills and live digital numerical displays",
+        "Armed injection buttons (Drop, Reorder, Dup, Replay) styled with pulsing warning borders when active",
+        "Ensure all data-testids remain 100% intact"
+      ]
+    },
+    "LaneCard.jsx": {
+      "improvements": [
+        "Elevate L4 card with distinct cyan neon crest, 'PROPOSED ARCHITECTURE' golden banner, and dual synchronized timelines",
+        "Stats grid restyled with high-density tactical chips featuring hover contrast shifts and tooltips",
+        "Add visual mini architecture diagram or iconography representing the recovery datapath (Chain step vs Cache lookahead vs Skip array vs Counter Seek ALU)",
+        "Sync state badge with breathing LED glow effect"
+      ]
+    },
+    "HeroPacketFlow.jsx": {
+      "purpose": "Solve user complaint ('broooo i wanttt aa veryy gooddd html page thiss lookss veryy dull it should be interactive pleaseeeeeee')",
+      "features": [
+        "Smooth real-time canvas animation synced to simulator step()",
+        "Interactive hover on nodes displaying cryptographic state (Ascon state bit width, ratchet epoch, memory footprint)",
+        "Interactive test trigger buttons right on the channel (Drop Next, Jitter Network)",
+        "Live FPS and frame counter"
+      ]
+    }
+  },
+  "instructions_to_main_agent": [
+    "DO NOT break or remove ANY existing data-testid attribute in any component. Automated regression suites depend on them strictly.",
+    "Implement the animated HeroPacketFlow component using HTML5 Canvas and React useEffect requestAnimationFrame loop for top-notch 60fps performance without DOM thrashing.",
+    "Introduce Viva demo scenario buttons (e.g. 'Test Single Drop', 'Test 5-Pkt Burst', 'Inject Replay Attack') that trigger simRef.current with preconfigured params so examiners can witness the exact failure/recovery dynamics in 1 click.",
+    "Add sticky navigation with jump links to make navigating the long research workbench frictionless on laptops and projectors.",
+    "Use JetBrains Mono and IBM Plex Sans fonts consistently with rich tactical color accents (#00f0ff cyan, #8b5cf6 violet, #f59e0b amber, #f43f5e rose, #10b981 emerald).",
+    "Keep all simulator logic in lib/sim.js and lib/hardware.js intact - all cryptographic behavior is real Ascon and must continue working seamlessly.",
+    "Ensure dark mode is deep and immersive (#06090f) with subtle micro-dots and crisp 1px borders, avoiding flat gray blankets."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. In frontend design, this creates what users call the 'AI slop' aesthetic. Avoid this: make creative, distinctive frontends that surprise and delight.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "You MUST NOT apply universal transition (e.g. transition: all). This results in breaking transforms. Always add transitions for specific interactive elements.",
+    "You MUST NOT center align the app container (.App { text-align: center; } is forbidden).",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style.",
+    "NEVER use AI assistant emoji characters like 🤖🧠💭💡🔮🎯 for icons. Use lucide-react icons exclusively.",
+    "All interactive and key informational elements MUST include a data-testid attribute."
+  ]
+}
